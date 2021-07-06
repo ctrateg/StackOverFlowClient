@@ -1,8 +1,11 @@
 import UIKit
+import Foundation
 
 class PrimaryTableViewController: UITableViewController {
     let getRequestClass = GetRequestClass()
     var dataJson: [QuestionDTO] = []
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +30,14 @@ class PrimaryTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PrimaryCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PrimaryTableViewCell", for: indexPath) as! PrimaryTableViewCell
+        let time:Int = dataJson[indexPath.row].answerCount ?? 0
+        let commentsInt: Int = dataJson[indexPath.row].answerCount ?? 0
         
-        cell.textLabel?.text = dataJson[indexPath.row].title
-        //cell.detailTextLabel?.text = dataJson[indexPath.row].answerCount
-        
+        cell.qestion.text = dataJson[indexPath.row].title
+        cell.answeringPerson.text = dataJson[indexPath.row].owner?.displayName
+        cell.comments.text = "Ответов:" + String(commentsInt)
+        cell.editData.text = String(describing: dataJson[indexPath.row].lastEditDate)
         
         return cell
     }
