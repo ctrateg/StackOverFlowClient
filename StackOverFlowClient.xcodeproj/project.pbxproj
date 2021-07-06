@@ -3,27 +3,43 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1B0074F3268CDB5F00B6C4A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0074F2268CDB5F00B6C4A2 /* AppDelegate.swift */; };
 		1B0074F5268CDB5F00B6C4A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0074F4268CDB5F00B6C4A2 /* SceneDelegate.swift */; };
-		1B0074F7268CDB5F00B6C4A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0074F6268CDB5F00B6C4A2 /* ViewController.swift */; };
 		1B0074FA268CDB5F00B6C4A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B0074F8268CDB5F00B6C4A2 /* Main.storyboard */; };
 		1B0074FC268CDB6200B6C4A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B0074FB268CDB6200B6C4A2 /* Assets.xcassets */; };
 		1B0074FF268CDB6200B6C4A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B0074FD268CDB6200B6C4A2 /* LaunchScreen.storyboard */; };
+		1B4C0A0F268CDF6B00FC760B /* PrimaryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C0A0E268CDF6B00FC760B /* PrimaryTableViewController.swift */; };
+		1B4C0A11268CDF7900FC760B /* SecondaryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C0A10268CDF7900FC760B /* SecondaryTableViewController.swift */; };
+		1B4C0A17268D1BDA00FC760B /* OwnerDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C0A16268D1BDA00FC760B /* OwnerDTO.swift */; };
+		1B4C0A19268D1BE600FC760B /* QuestionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C0A18268D1BE600FC760B /* QuestionDTO.swift */; };
+		1B4C0A1B268D1BED00FC760B /* QuestionResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C0A1A268D1BED00FC760B /* QuestionResponseDTO.swift */; };
+		1B4C0A1D268D1C0900FC760B /* Xcode .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1B4C0A1C268D1C0900FC760B /* Xcode .gitignore */; };
+		1B4C0A1F268E520000FC760B /* GetRequestClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C0A1E268E520000FC760B /* GetRequestClass.swift */; };
+		C2ED0575A38A4C4441B6B63A /* Pods_StackOverFlowClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD819F14E4935DA2A27E032B /* Pods_StackOverFlowClient.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02DF282C54EFCA270715E2B5 /* Pods-StackOverFlowClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StackOverFlowClient.debug.xcconfig"; path = "Target Support Files/Pods-StackOverFlowClient/Pods-StackOverFlowClient.debug.xcconfig"; sourceTree = "<group>"; };
 		1B0074EF268CDB5F00B6C4A2 /* StackOverFlowClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackOverFlowClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B0074F2268CDB5F00B6C4A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B0074F4268CDB5F00B6C4A2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1B0074F6268CDB5F00B6C4A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1B0074F9268CDB5F00B6C4A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1B0074FB268CDB6200B6C4A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B0074FE268CDB6200B6C4A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B007500268CDB6200B6C4A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B4C0A0E268CDF6B00FC760B /* PrimaryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTableViewController.swift; sourceTree = "<group>"; };
+		1B4C0A10268CDF7900FC760B /* SecondaryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryTableViewController.swift; sourceTree = "<group>"; };
+		1B4C0A16268D1BDA00FC760B /* OwnerDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerDTO.swift; sourceTree = "<group>"; };
+		1B4C0A18268D1BE600FC760B /* QuestionDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionDTO.swift; sourceTree = "<group>"; };
+		1B4C0A1A268D1BED00FC760B /* QuestionResponseDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionResponseDTO.swift; sourceTree = "<group>"; };
+		1B4C0A1C268D1C0900FC760B /* Xcode .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Xcode .gitignore"; sourceTree = "<group>"; };
+		1B4C0A1E268E520000FC760B /* GetRequestClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRequestClass.swift; sourceTree = "<group>"; };
+		ABDB028A3D71437F36CE255D /* Pods-StackOverFlowClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StackOverFlowClient.release.xcconfig"; path = "Target Support Files/Pods-StackOverFlowClient/Pods-StackOverFlowClient.release.xcconfig"; sourceTree = "<group>"; };
+		CD819F14E4935DA2A27E032B /* Pods_StackOverFlowClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StackOverFlowClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2ED0575A38A4C4441B6B63A /* Pods_StackOverFlowClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,8 +57,11 @@
 		1B0074E6268CDB5F00B6C4A2 = {
 			isa = PBXGroup;
 			children = (
+				1B4C0A1C268D1C0900FC760B /* Xcode .gitignore */,
 				1B0074F1268CDB5F00B6C4A2 /* StackOverFlowClient */,
 				1B0074F0268CDB5F00B6C4A2 /* Products */,
+				B8699508080214C92BD6CF23 /* Pods */,
+				B85A212013B3C7A6AAF7A97A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +76,69 @@
 		1B0074F1268CDB5F00B6C4A2 /* StackOverFlowClient */ = {
 			isa = PBXGroup;
 			children = (
+				1B4C0A14268CE04900FC760B /* View */,
+				1B4C0A13268CE04600FC760B /* Module  */,
+				1B4C0A12268CE03D00FC760B /* Controllers */,
 				1B0074F2268CDB5F00B6C4A2 /* AppDelegate.swift */,
 				1B0074F4268CDB5F00B6C4A2 /* SceneDelegate.swift */,
-				1B0074F6268CDB5F00B6C4A2 /* ViewController.swift */,
-				1B0074F8268CDB5F00B6C4A2 /* Main.storyboard */,
 				1B0074FB268CDB6200B6C4A2 /* Assets.xcassets */,
 				1B0074FD268CDB6200B6C4A2 /* LaunchScreen.storyboard */,
 				1B007500268CDB6200B6C4A2 /* Info.plist */,
 			);
 			path = StackOverFlowClient;
+			sourceTree = "<group>";
+		};
+		1B4C0A12268CE03D00FC760B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1B4C0A0E268CDF6B00FC760B /* PrimaryTableViewController.swift */,
+				1B4C0A10268CDF7900FC760B /* SecondaryTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		1B4C0A13268CE04600FC760B /* Module  */ = {
+			isa = PBXGroup;
+			children = (
+				1B4C0A1E268E520000FC760B /* GetRequestClass.swift */,
+				1B4C0A15268D1BCC00FC760B /* Domain */,
+			);
+			path = "Module ";
+			sourceTree = "<group>";
+		};
+		1B4C0A14268CE04900FC760B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1B0074F8268CDB5F00B6C4A2 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1B4C0A15268D1BCC00FC760B /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				1B4C0A1A268D1BED00FC760B /* QuestionResponseDTO.swift */,
+				1B4C0A18268D1BE600FC760B /* QuestionDTO.swift */,
+				1B4C0A16268D1BDA00FC760B /* OwnerDTO.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		B85A212013B3C7A6AAF7A97A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CD819F14E4935DA2A27E032B /* Pods_StackOverFlowClient.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B8699508080214C92BD6CF23 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				02DF282C54EFCA270715E2B5 /* Pods-StackOverFlowClient.debug.xcconfig */,
+				ABDB028A3D71437F36CE255D /* Pods-StackOverFlowClient.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +148,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1B007503268CDB6200B6C4A2 /* Build configuration list for PBXNativeTarget "StackOverFlowClient" */;
 			buildPhases = (
+				83F25ADF3CA458FD7FA637A6 /* [CP] Check Pods Manifest.lock */,
 				1B0074EB268CDB5F00B6C4A2 /* Sources */,
 				1B0074EC268CDB5F00B6C4A2 /* Frameworks */,
 				1B0074ED268CDB5F00B6C4A2 /* Resources */,
+				21AC76F7544339CEADD9B15A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B0074FF268CDB6200B6C4A2 /* LaunchScreen.storyboard in Resources */,
+				1B4C0A1D268D1C0900FC760B /* Xcode .gitignore in Resources */,
 				1B0074FC268CDB6200B6C4A2 /* Assets.xcassets in Resources */,
 				1B0074FA268CDB5F00B6C4A2 /* Main.storyboard in Resources */,
 			);
@@ -132,14 +209,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		21AC76F7544339CEADD9B15A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StackOverFlowClient/Pods-StackOverFlowClient-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StackOverFlowClient/Pods-StackOverFlowClient-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StackOverFlowClient/Pods-StackOverFlowClient-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		83F25ADF3CA458FD7FA637A6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StackOverFlowClient-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1B0074EB268CDB5F00B6C4A2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B0074F7268CDB5F00B6C4A2 /* ViewController.swift in Sources */,
+				1B4C0A17268D1BDA00FC760B /* OwnerDTO.swift in Sources */,
+				1B4C0A19268D1BE600FC760B /* QuestionDTO.swift in Sources */,
+				1B4C0A11268CDF7900FC760B /* SecondaryTableViewController.swift in Sources */,
 				1B0074F3268CDB5F00B6C4A2 /* AppDelegate.swift in Sources */,
 				1B0074F5268CDB5F00B6C4A2 /* SceneDelegate.swift in Sources */,
+				1B4C0A1B268D1BED00FC760B /* QuestionResponseDTO.swift in Sources */,
+				1B4C0A0F268CDF6B00FC760B /* PrimaryTableViewController.swift in Sources */,
+				1B4C0A1F268E520000FC760B /* GetRequestClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +340,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -271,7 +395,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -283,12 +407,14 @@
 		};
 		1B007504268CDB6200B6C4A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02DF282C54EFCA270715E2B5 /* Pods-StackOverFlowClient.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 638JMZXLWD;
 				INFOPLIST_FILE = StackOverFlowClient/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,12 +428,14 @@
 		};
 		1B007505268CDB6200B6C4A2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABDB028A3D71437F36CE255D /* Pods-StackOverFlowClient.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 638JMZXLWD;
 				INFOPLIST_FILE = StackOverFlowClient/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
