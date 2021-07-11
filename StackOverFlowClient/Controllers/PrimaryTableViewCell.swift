@@ -7,7 +7,6 @@ class PrimaryTableViewCell: UITableViewCell {
     @IBOutlet weak var comments: UILabel!
     @IBOutlet weak var editData: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

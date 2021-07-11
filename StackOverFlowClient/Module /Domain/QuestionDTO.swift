@@ -8,7 +8,7 @@ struct QuestionDTO: Codable{
     let isAnswered: Bool?
     let lastActivityDate: Int?
     let lastEditDate: Int?
-    let link: String
+    let link: String?
     let owner: OwnerDTO?
     let questionId: Int?
     let score: Int?

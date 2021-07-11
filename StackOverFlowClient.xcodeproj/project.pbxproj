@@ -13,13 +13,13 @@
 		1B0074FC268CDB6200B6C4A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B0074FB268CDB6200B6C4A2 /* Assets.xcassets */; };
 		1B0074FF268CDB6200B6C4A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B0074FD268CDB6200B6C4A2 /* LaunchScreen.storyboard */; };
 		1B4C0A0F268CDF6B00FC760B /* PrimaryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C0A0E268CDF6B00FC760B /* PrimaryTableViewController.swift */; };
-		1B4C0A11268CDF7900FC760B /* SecondaryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C0A10268CDF7900FC760B /* SecondaryTableViewController.swift */; };
 		1B4C0A17268D1BDA00FC760B /* OwnerDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C0A16268D1BDA00FC760B /* OwnerDTO.swift */; };
 		1B4C0A19268D1BE600FC760B /* QuestionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C0A18268D1BE600FC760B /* QuestionDTO.swift */; };
 		1B4C0A1B268D1BED00FC760B /* QuestionResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C0A1A268D1BED00FC760B /* QuestionResponseDTO.swift */; };
 		1B4C0A1D268D1C0900FC760B /* Xcode .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1B4C0A1C268D1C0900FC760B /* Xcode .gitignore */; };
 		1B4C0A1F268E520000FC760B /* GetRequestClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C0A1E268E520000FC760B /* GetRequestClass.swift */; };
 		1BE06BB02694F2EF000BCBA2 /* PrimaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE06BAF2694F2EF000BCBA2 /* PrimaryTableViewCell.swift */; };
+		1BE06BB4269664CB000BCBA2 /* StringExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE06BB3269664CB000BCBA2 /* StringExtention.swift */; };
 		C2ED0575A38A4C4441B6B63A /* Pods_StackOverFlowClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD819F14E4935DA2A27E032B /* Pods_StackOverFlowClient.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,13 +33,13 @@
 		1B0074FE268CDB6200B6C4A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B007500268CDB6200B6C4A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B4C0A0E268CDF6B00FC760B /* PrimaryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTableViewController.swift; sourceTree = "<group>"; };
-		1B4C0A10268CDF7900FC760B /* SecondaryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryTableViewController.swift; sourceTree = "<group>"; };
 		1B4C0A16268D1BDA00FC760B /* OwnerDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerDTO.swift; sourceTree = "<group>"; };
 		1B4C0A18268D1BE600FC760B /* QuestionDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionDTO.swift; sourceTree = "<group>"; };
 		1B4C0A1A268D1BED00FC760B /* QuestionResponseDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionResponseDTO.swift; sourceTree = "<group>"; };
 		1B4C0A1C268D1C0900FC760B /* Xcode .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Xcode .gitignore"; sourceTree = "<group>"; };
 		1B4C0A1E268E520000FC760B /* GetRequestClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRequestClass.swift; sourceTree = "<group>"; };
 		1BE06BAF2694F2EF000BCBA2 /* PrimaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PrimaryTableViewCell.swift; path = StackOverFlowClient/Controllers/PrimaryTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		1BE06BB3269664CB000BCBA2 /* StringExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtention.swift; sourceTree = "<group>"; };
 		ABDB028A3D71437F36CE255D /* Pods-StackOverFlowClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StackOverFlowClient.release.xcconfig"; path = "Target Support Files/Pods-StackOverFlowClient/Pods-StackOverFlowClient.release.xcconfig"; sourceTree = "<group>"; };
 		CD819F14E4935DA2A27E032B /* Pods_StackOverFlowClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StackOverFlowClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -95,7 +95,7 @@
 			children = (
 				1BE06BAF2694F2EF000BCBA2 /* PrimaryTableViewCell.swift */,
 				1B4C0A0E268CDF6B00FC760B /* PrimaryTableViewController.swift */,
-				1B4C0A10268CDF7900FC760B /* SecondaryTableViewController.swift */,
+				1BE06BB3269664CB000BCBA2 /* StringExtention.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -262,10 +262,10 @@
 				1B4C0A17268D1BDA00FC760B /* OwnerDTO.swift in Sources */,
 				1BE06BB02694F2EF000BCBA2 /* PrimaryTableViewCell.swift in Sources */,
 				1B4C0A19268D1BE600FC760B /* QuestionDTO.swift in Sources */,
-				1B4C0A11268CDF7900FC760B /* SecondaryTableViewController.swift in Sources */,
 				1B0074F3268CDB5F00B6C4A2 /* AppDelegate.swift in Sources */,
 				1B0074F5268CDB5F00B6C4A2 /* SceneDelegate.swift in Sources */,
 				1B4C0A1B268D1BED00FC760B /* QuestionResponseDTO.swift in Sources */,
+				1BE06BB4269664CB000BCBA2 /* StringExtention.swift in Sources */,
 				1B4C0A0F268CDF6B00FC760B /* PrimaryTableViewController.swift in Sources */,
 				1B4C0A1F268E520000FC760B /* GetRequestClass.swift in Sources */,
 			);
