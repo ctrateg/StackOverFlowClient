@@ -132,12 +132,11 @@ class PrimaryTableViewController: UITableViewController, UIPickerViewDelegate, U
         if tagRequest == tagRequestChange {
             pickerView.isHidden = true
         } else {
+            pickerView.isHidden = true
+            self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+            
             tagRequest = tagRequestChange
             request(tag: tagRequest)
-            
-            pickerView.isHidden = true
-
-            self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
         }
         dismiss(animated: true, completion: nil)
     }

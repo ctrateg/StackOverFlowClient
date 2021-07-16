@@ -63,10 +63,12 @@ class SecondaryTableViewController: UITableViewController {
     
     //запрос с обновлением таблицы
     func answerRequest(ids: String){
+        navigationItem.hidesBackButton = true
         httpsWorkingClass.requestAnswers(ids: ids){ [weak self] searchResponce in
             self?.dataJson = searchResponce.items
             DispatchQueue.main.sync {
                 self?.tableView.reloadData()
+                self?.navigationItem.hidesBackButton = false
             }
         }
     }

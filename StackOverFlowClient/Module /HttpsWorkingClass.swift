@@ -35,7 +35,6 @@ class HttpsWorkingClass {
         
             do {
                 let returnData = try jsonDecoder.decode(AnswersResponseDTO.self, from: data!)
-                print("loaded")
                 completion(returnData)
             } catch let error as NSError {
                 print("\(error), \(error.userInfo)")
