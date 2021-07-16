@@ -5,6 +5,5 @@ use_frameworks!
 
 
 target 'StackOverFlowClient' do
-  pod 'Alamofire','~> 4'
-
+  pod 'SwiftSoup', '>= 2.0.0'
 end

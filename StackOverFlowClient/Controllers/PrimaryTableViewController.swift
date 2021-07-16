@@ -1,24 +1,25 @@
 import UIKit
 import Foundation
+import SwiftSoup
 
 class PrimaryTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    @IBOutlet weak var refreshIndicattor: UIActivityIndicatorView!
     
-    let getRequestClass = GetRequestClass()
+    let httpsWorkingClass = HttpsWorkingClass()
     var dataJson: [QuestionDTO] = []
-    
     var tagRequest: String = "swift"
     var pickerData = ["swift", "objective-c", "ios", "xcode", "cocoa_touch", "iphone"]
-    
-    var pickerView: UIPickerView = UIPickerView()
+    var page = 1
+    var loadMoreStatus = false
     
     //эти части интерфейса как индикатор и пикер реализованны в коде, чтоб не нагромождать интерфейс билдер
     let loadView = UIView()
     let indicator = UIActivityIndicatorView()
-    let loadLabel = UILabel()
+    var pickerView: UIPickerView = UIPickerView()
     
+    //button для вызова пикера
     @IBAction func tagPicker(_ sender: Any) {
         let alert = UIAlertController(title: "", message: "\n\n\n\n\n\n\n\n\n\n", preferredStyle: .actionSheet)
-        
         alert.isModalInPopover = true
         
         pickerView.frame = CGRect(x: 8.0, y: 8.0, width: alert.view.bounds.size.width - 32.5, height: 202.5)
@@ -43,6 +44,9 @@ class PrimaryTableViewController: UITableViewController, UIPickerViewDelegate, U
         pickerView.isHidden = true
         pickerView.backgroundColor = .white
         
+        refreshControl = UIRefreshControl()
+        refreshControl?.attributedTitle = NSAttributedString(string: "Идет обновление...")
+        refreshControl?.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
     }
 
     
@@ -65,64 +69,50 @@ class PrimaryTableViewController: UITableViewController, UIPickerViewDelegate, U
         let editDate: Int = dataRow.lastEditDate ?? 0
         let creatDate: Int = dataRow.creationDate ?? 0
         
-        
         cell.qestion.text = qestionString.htmlDecoded
         cell.answeringPerson.text = answeringPersonString.htmlDecoded
         cell.comments.text = "Ответов:" + String(commentsInt)
         
-        
         if editDate != 0 {
-            cell.editData.text = dateOutput(editDate)
+            cell.editData.text = Utility.dateOutput(editDate)
         } else {
-            cell.editData.text = unwarpDate(creatDate)
+            cell.editData.text = Utility.unwarpDate(creatDate)
         }
-        
-        
+
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "SegueSecond") {
+            let controller = segue.destination as! SecondaryTableViewController
+            let row = tableView.indexPathForSelectedRow?.row ?? 0
+            
+            controller.link = dataJson[row].link
+            controller.qestionId = dataJson[row].questionId
+            controller.qestionLastEditDate = dataJson[row].lastEditDate
+            controller.qestionCreationDate = dataJson[row].creationDate
+            controller.qestionScore = dataJson[row].score
+            controller.qestionNickName = dataJson[row].owner?.displayName?.htmlDecoded
+        }
+    }
 
-    func request(tag: String){
+    // запрос по тегу для первого тбв
+    func request(tag: String, page: String = "1"){
         setLoadingScreen()
-        getRequestClass.getRequest(tag: tag){ [weak self] searchResponce in
+        
+        httpsWorkingClass.requestQestion(page: page, tag: tag){ [weak self] searchResponce in
             self?.dataJson = searchResponce.items
-            self?.tableView.reloadData()
-        }
-        navigationController?.topViewController?.title = tag
-        removeLoadingScreen()
-    }
-    
-    func dateOutput(_ date: Int) -> String {
-        let timeNow = Int(Date().timeIntervalSince1970)
-        let difference = timeNow - date
-        
-        if difference <= 86400 {
-            switch difference{
-            case 0...60:
-                return "modified \(difference) secs ago"
-            case 60...3600:
-                return "modified \(difference/60) minutes ago"
-            default:
-                return "modified \(difference/3600) hours ago"
+            DispatchQueue.main.sync {
+                self?.tableView.reloadData()
             }
-        } else {
-            //date without time
-            return unwarpDate(date)
         }
+        self.page = 1
+        
+        removeLoadingScreen()
+        
+        navigationController?.topViewController?.title = tag
     }
     
-    
-    
-    func unwarpDate(_ date:Int) -> String {
-        //var secondFromGMT: Int { return TimeZone.current.secondsFromGMT() }
-        //let timeZoneDate = date + secondFromGMT
-        
-        let formatter = DateFormatter()
-        let dateInterval = TimeInterval(date)
-        let dateOutput = Date(timeIntervalSince1970: dateInterval)
-        formatter.dateStyle = .long
-        
-        return formatter.string(from: dateOutput)
-    }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -140,94 +130,105 @@ class PrimaryTableViewController: UITableViewController, UIPickerViewDelegate, U
         let tagRequestChange = pickerData[row]
         
         if tagRequest == tagRequestChange {
-            
             pickerView.isHidden = true
         } else {
             tagRequest = tagRequestChange
-            
             request(tag: tagRequest)
             
             pickerView.isHidden = true
 
             self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
         }
-        
         dismiss(animated: true, completion: nil)
     }
     
+    // экран индикатора при подгрузках
     private func setLoadingScreen(){
         // Sets the view which contains the loading text and the spinner
-               let width: CGFloat = 120
-               let height: CGFloat = 30
-               let x = (tableView.frame.width / 2) - (width / 2)
-               let y = (tableView.frame.height / 2) - (height / 2) - (navigationController?.navigationBar.frame.height)!
+        let width: CGFloat = 50
+        let height: CGFloat = 30
+        let x = (tableView.frame.width / 2) - (width / 2)
+        let y = (tableView.frame.height / 2) - (height / 2) - (navigationController?.navigationBar.frame.height)!
         
-               loadView.frame = CGRect(x: x, y: y, width: width, height: height)
+        loadView.frame = CGRect(x: x, y: y, width: width, height: height)
 
-               loadLabel.textColor = .darkGray
-               loadLabel.textAlignment = .center
-               loadLabel.text = "Loading..."
-               loadLabel.frame = CGRect(x: 0, y: 0, width: 140, height: 30)
+        indicator.style = .gray
+        indicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        indicator.startAnimating()
 
-               indicator.style = .gray
-               indicator.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-               indicator.startAnimating()
+        loadView.addSubview(indicator)
 
-               loadView.addSubview(indicator)
-               loadView.addSubview(loadLabel)
-
-               tableView.addSubview(loadView)
+        tableView.addSubview(loadView)
+        tableView.isScrollEnabled = false
+        sleep(2)
     }
     
     private func removeLoadingScreen(){
-        // Hides and stops the text and the spinner
-              indicator.stopAnimating()
-              indicator.isHidden = true
-              loadLabel.isHidden = true
+        indicator.stopAnimating()
+        indicator.isHidden = true
+        
+        tableView.isScrollEnabled = true
     }
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    //обновление по свайпу вниз
+    @objc func refresh() {
+        refreshBegin(tag: tagRequest, refreshEnd: {(x:Int) -> () in
+            self.tableView.reloadData()
+            self.refreshControl?.endRefreshing()
+            })
+        }
+        
+    func refreshBegin(tag:String, refreshEnd: @escaping(Int) -> ()) {
+            DispatchQueue.global(qos: .default).async() {
+                self.httpsWorkingClass.requestQestion(tag: tag){ [weak self] searchResponce in
+                    self?.dataJson = searchResponce.items
+                    
+                    DispatchQueue.main.sync {
+                        self?.tableView.reloadData()
+                    }
+                }
+                sleep(2)
+                
+                DispatchQueue.main.async() {
+                    refreshEnd(0)
+                }
+            }
+        }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let currentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+        let deltaOffset = maximumOffset - currentOffset
+        
+        if deltaOffset <= 0 {
+            loadMore()
+        }
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    func loadMore() {
+        if ( !loadMoreStatus ) {
+            self.loadMoreStatus = true
+            self.setLoadingScreen()
+            loadMoreBegin(tag: tagRequest, loadMoreEnd: {(x:Int) -> () in
+                self.tableView.reloadData()
+                self.loadMoreStatus = false
+                self.removeLoadingScreen()
+            })
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    func loadMoreBegin(tag:String, loadMoreEnd: @escaping(Int) -> ()) {
+        DispatchQueue.global(qos: .default).async() {
+            self.page += 1
+            
+            self.httpsWorkingClass.requestQestion(page: "\(self.page)", tag: tag){ [weak self] searchResponce in
+                self?.dataJson += searchResponce.items
+            sleep(2)
+               
+            DispatchQueue.main.async() {
+                   loadMoreEnd(0)
+               }
+           }
+       }
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

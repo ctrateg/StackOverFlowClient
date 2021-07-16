@@ -17,11 +17,31 @@
 		1B4C0A19268D1BE600FC760B /* QuestionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C0A18268D1BE600FC760B /* QuestionDTO.swift */; };
 		1B4C0A1B268D1BED00FC760B /* QuestionResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C0A1A268D1BED00FC760B /* QuestionResponseDTO.swift */; };
 		1B4C0A1D268D1C0900FC760B /* Xcode .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1B4C0A1C268D1C0900FC760B /* Xcode .gitignore */; };
-		1B4C0A1F268E520000FC760B /* GetRequestClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C0A1E268E520000FC760B /* GetRequestClass.swift */; };
+		1B4C0A1F268E520000FC760B /* HttpsWorkingClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C0A1E268E520000FC760B /* HttpsWorkingClass.swift */; };
 		1BE06BB02694F2EF000BCBA2 /* PrimaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE06BAF2694F2EF000BCBA2 /* PrimaryTableViewCell.swift */; };
 		1BE06BB4269664CB000BCBA2 /* StringExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE06BB3269664CB000BCBA2 /* StringExtention.swift */; };
-		C2ED0575A38A4C4441B6B63A /* Pods_StackOverFlowClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD819F14E4935DA2A27E032B /* Pods_StackOverFlowClient.framework */; };
+		1BE06BB8269BBDC4000BCBA2 /* SecondaryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE06BB7269BBDC4000BCBA2 /* SecondaryTableViewController.swift */; };
+		1BE06BBA269C5FAB000BCBA2 /* SecondaryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE06BB9269C5FAB000BCBA2 /* SecondaryTableCell.swift */; };
+		1BE06BBC269CE859000BCBA2 /* Pods_StackOverFlowClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD819F14E4935DA2A27E032B /* Pods_StackOverFlowClient.framework */; };
+		1BE06BBD269CE859000BCBA2 /* Pods_StackOverFlowClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CD819F14E4935DA2A27E032B /* Pods_StackOverFlowClient.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1BE06BC0269E4A78000BCBA2 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE06BBF269E4A78000BCBA2 /* Utility.swift */; };
+		1BE24C7626A18596001B65BC /* AnswersDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE24C7526A18596001B65BC /* AnswersDTO.swift */; };
+		1BE24C7826A1D2EC001B65BC /* AnswersResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE24C7726A1D2EC001B65BC /* AnswersResponseDTO.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1BE06BBE269CE859000BCBA2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1BE06BBD269CE859000BCBA2 /* Pods_StackOverFlowClient.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		02DF282C54EFCA270715E2B5 /* Pods-StackOverFlowClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StackOverFlowClient.debug.xcconfig"; path = "Target Support Files/Pods-StackOverFlowClient/Pods-StackOverFlowClient.debug.xcconfig"; sourceTree = "<group>"; };
@@ -37,9 +57,14 @@
 		1B4C0A18268D1BE600FC760B /* QuestionDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionDTO.swift; sourceTree = "<group>"; };
 		1B4C0A1A268D1BED00FC760B /* QuestionResponseDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionResponseDTO.swift; sourceTree = "<group>"; };
 		1B4C0A1C268D1C0900FC760B /* Xcode .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Xcode .gitignore"; sourceTree = "<group>"; };
-		1B4C0A1E268E520000FC760B /* GetRequestClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRequestClass.swift; sourceTree = "<group>"; };
-		1BE06BAF2694F2EF000BCBA2 /* PrimaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PrimaryTableViewCell.swift; path = StackOverFlowClient/Controllers/PrimaryTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		1B4C0A1E268E520000FC760B /* HttpsWorkingClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpsWorkingClass.swift; sourceTree = "<group>"; };
+		1BE06BAF2694F2EF000BCBA2 /* PrimaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PrimaryTableViewCell.swift; path = StackOverFlowClient/Controllers/Cells/PrimaryTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		1BE06BB3269664CB000BCBA2 /* StringExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtention.swift; sourceTree = "<group>"; };
+		1BE06BB7269BBDC4000BCBA2 /* SecondaryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SecondaryTableViewController.swift; path = StackOverFlowClient/Controllers/SecondaryTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		1BE06BB9269C5FAB000BCBA2 /* SecondaryTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryTableCell.swift; sourceTree = "<group>"; };
+		1BE06BBF269E4A78000BCBA2 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		1BE24C7526A18596001B65BC /* AnswersDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnswersDTO.swift; path = "StackOverFlowClient/Module /Domain/AnswersDTO.swift"; sourceTree = SOURCE_ROOT; };
+		1BE24C7726A1D2EC001B65BC /* AnswersResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersResponseDTO.swift; sourceTree = "<group>"; };
 		ABDB028A3D71437F36CE255D /* Pods-StackOverFlowClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StackOverFlowClient.release.xcconfig"; path = "Target Support Files/Pods-StackOverFlowClient/Pods-StackOverFlowClient.release.xcconfig"; sourceTree = "<group>"; };
 		CD819F14E4935DA2A27E032B /* Pods_StackOverFlowClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StackOverFlowClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -49,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2ED0575A38A4C4441B6B63A /* Pods_StackOverFlowClient.framework in Frameworks */,
+				1BE06BBC269CE859000BCBA2 /* Pods_StackOverFlowClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,7 +118,8 @@
 		1B4C0A12268CE03D00FC760B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1BE06BAF2694F2EF000BCBA2 /* PrimaryTableViewCell.swift */,
+				1BE06BBB269C6244000BCBA2 /* Cells */,
+				1BE06BB7269BBDC4000BCBA2 /* SecondaryTableViewController.swift */,
 				1B4C0A0E268CDF6B00FC760B /* PrimaryTableViewController.swift */,
 				1BE06BB3269664CB000BCBA2 /* StringExtention.swift */,
 			);
@@ -103,7 +129,8 @@
 		1B4C0A13268CE04600FC760B /* Module  */ = {
 			isa = PBXGroup;
 			children = (
-				1B4C0A1E268E520000FC760B /* GetRequestClass.swift */,
+				1B4C0A1E268E520000FC760B /* HttpsWorkingClass.swift */,
+				1BE06BBF269E4A78000BCBA2 /* Utility.swift */,
 				1B4C0A15268D1BCC00FC760B /* Domain */,
 			);
 			path = "Module ";
@@ -121,10 +148,21 @@
 			isa = PBXGroup;
 			children = (
 				1B4C0A1A268D1BED00FC760B /* QuestionResponseDTO.swift */,
+				1BE24C7726A1D2EC001B65BC /* AnswersResponseDTO.swift */,
 				1B4C0A18268D1BE600FC760B /* QuestionDTO.swift */,
 				1B4C0A16268D1BDA00FC760B /* OwnerDTO.swift */,
+				1BE24C7526A18596001B65BC /* AnswersDTO.swift */,
 			);
 			path = Domain;
+			sourceTree = "<group>";
+		};
+		1BE06BBB269C6244000BCBA2 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1BE06BB9269C5FAB000BCBA2 /* SecondaryTableCell.swift */,
+				1BE06BAF2694F2EF000BCBA2 /* PrimaryTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		B85A212013B3C7A6AAF7A97A /* Frameworks */ = {
@@ -156,6 +194,7 @@
 				1B0074EC268CDB5F00B6C4A2 /* Frameworks */,
 				1B0074ED268CDB5F00B6C4A2 /* Resources */,
 				21AC76F7544339CEADD9B15A /* [CP] Embed Pods Frameworks */,
+				1BE06BBE269CE859000BCBA2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -261,13 +300,18 @@
 			files = (
 				1B4C0A17268D1BDA00FC760B /* OwnerDTO.swift in Sources */,
 				1BE06BB02694F2EF000BCBA2 /* PrimaryTableViewCell.swift in Sources */,
+				1BE06BBA269C5FAB000BCBA2 /* SecondaryTableCell.swift in Sources */,
 				1B4C0A19268D1BE600FC760B /* QuestionDTO.swift in Sources */,
 				1B0074F3268CDB5F00B6C4A2 /* AppDelegate.swift in Sources */,
+				1BE24C7826A1D2EC001B65BC /* AnswersResponseDTO.swift in Sources */,
+				1BE06BC0269E4A78000BCBA2 /* Utility.swift in Sources */,
 				1B0074F5268CDB5F00B6C4A2 /* SceneDelegate.swift in Sources */,
 				1B4C0A1B268D1BED00FC760B /* QuestionResponseDTO.swift in Sources */,
 				1BE06BB4269664CB000BCBA2 /* StringExtention.swift in Sources */,
 				1B4C0A0F268CDF6B00FC760B /* PrimaryTableViewController.swift in Sources */,
-				1B4C0A1F268E520000FC760B /* GetRequestClass.swift in Sources */,
+				1BE24C7626A18596001B65BC /* AnswersDTO.swift in Sources */,
+				1B4C0A1F268E520000FC760B /* HttpsWorkingClass.swift in Sources */,
+				1BE06BB8269BBDC4000BCBA2 /* SecondaryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

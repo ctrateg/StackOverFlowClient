@@ -8,6 +8,7 @@ struct OwnerDTO: Codable {
     let reputation: Int?
     let userId: Int?
     
+    
     enum UserType: String, Codable {
         case unregistered, registered, moderator, teamAdmin, doesNotExist
     }
