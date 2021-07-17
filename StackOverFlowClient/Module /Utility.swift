@@ -25,12 +25,16 @@ class Utility {
     static func unwarpDate(_ date:Int) -> String {
         //var secondFromGMT: Int { return TimeZone.current.secondsFromGMT() }
         //let timeZoneDate = date + secondFromGMT
-        
-        let formatter = DateFormatter()
-        let dateInterval = TimeInterval(date)
-        let dateOutput = Date(timeIntervalSince1970: dateInterval)
-        formatter.dateStyle = .long
-        
-        return formatter.string(from: dateOutput)
+        switch date {
+        case 0:
+            return ""
+        default:
+            let formatter = DateFormatter()
+            let dateInterval = TimeInterval(date)
+            let dateOutput = Date(timeIntervalSince1970: dateInterval)
+            formatter.dateStyle = .long
+            
+            return formatter.string(from: dateOutput)
+        }
     }
 }

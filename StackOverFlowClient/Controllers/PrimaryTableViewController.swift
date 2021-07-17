@@ -3,7 +3,6 @@ import Foundation
 import SwiftSoup
 
 class PrimaryTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-    @IBOutlet weak var refreshIndicattor: UIActivityIndicatorView!
     
     let httpsWorkingClass = HttpsWorkingClass()
     var dataJson: [QuestionDTO] = []

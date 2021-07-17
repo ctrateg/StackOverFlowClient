@@ -16,13 +16,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <activityIndicatorView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" id="21H-95-wHj">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </activityIndicatorView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PrimaryTableViewCell" rowHeight="100" id="Zkl-Jm-PH5" customClass="PrimaryTableViewCell" customModule="StackOverFlowClient" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="100"/>
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zkl-Jm-PH5" id="v4n-xe-kmn">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
@@ -94,9 +90,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="refreshIndicattor" destination="21H-95-wHj" id="klQ-1M-dn4"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ng8-2e-Fym" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -110,13 +103,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <activityIndicatorView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" id="sfI-CD-Onw">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </activityIndicatorView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SecondaryTableViewCell" rowHeight="332" id="Ngo-9s-C4g" customClass="SecondaryTableViewCell" customModule="StackOverFlowClient" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="332"/>
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="332"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ngo-9s-C4g" id="Oz4-Wi-0bf">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="332"/>
@@ -182,9 +171,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Qdp-dJ-D3R"/>
-                    <connections>
-                        <outlet property="refreshIndicator" destination="sfI-CD-Onw" id="FRh-ah-tyU"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Id-dc-A4o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -193,7 +179,6 @@
         <!--Navigation Controller-->
         <scene sceneID="Rsj-ml-8sq">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GUQ-Ya-hC1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qO0-2U-qoe" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kfU-Uy-uB5">
@@ -205,6 +190,7 @@
                         <segue destination="sPQ-31-FL5" kind="relationship" relationship="rootViewController" id="Zok-pJ-RI8"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GUQ-Ya-hC1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1377" y="-50"/>
         </scene>

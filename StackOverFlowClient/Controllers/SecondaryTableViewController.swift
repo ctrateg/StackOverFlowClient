@@ -12,8 +12,6 @@ class SecondaryTableViewController: UITableViewController {
     var qestionId: Int?
     var qestionScore: Int?
     
-    @IBOutlet weak var refreshIndicator: UIActivityIndicatorView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,7 +21,6 @@ class SecondaryTableViewController: UITableViewController {
         refreshControl = UIRefreshControl()
         refreshControl?.attributedTitle = NSAttributedString(string: "Идет обновление...")
         refreshControl?.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
-        
         tableView.rowHeight = UITableView.automaticDimension
     }
 
@@ -46,6 +43,7 @@ class SecondaryTableViewController: UITableViewController {
             cell.nickNameSTVC.text = qestionNickName
             cell.raitingSTVC.text = String(qestionScore ?? 0)
             cell.dateModificatedSTVC.text = date(creationDate: qestionCreationDate, lastEditDate: qestionLastEditDate)
+            cell.backgroundColor = .lightGray
         } else {
             cell.nickNameSTVC.text = dataJson[answerRow].owner?.displayName
             cell.raitingSTVC.text = String(dataJson[answerRow].score ?? 0)
