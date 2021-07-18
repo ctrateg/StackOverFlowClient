@@ -1,8 +1,11 @@
 import Foundation
 
 class Utility {
+    static let emptyString = ""
+    static let defaultInt = 0
+    
     // дата в умном виде
-   static func dateOutput(_ date: Int) -> String {
+    static func dateOutput(_ date: Int) -> String {
         let timeNow = Int(Date().timeIntervalSince1970)
         let difference = timeNow - date
         
@@ -16,15 +19,12 @@ class Utility {
                 return "modified \(difference/3600) hours ago"
             }
         } else {
-            //date without time
             return unwarpDate(date)
         }
     }
     
     //парс даты
     static func unwarpDate(_ date:Int) -> String {
-        //var secondFromGMT: Int { return TimeZone.current.secondsFromGMT() }
-        //let timeZoneDate = date + secondFromGMT
         switch date {
         case 0:
             return ""

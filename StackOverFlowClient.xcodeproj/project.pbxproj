@@ -12,16 +12,16 @@
 		1B0074FA268CDB5F00B6C4A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B0074F8268CDB5F00B6C4A2 /* Main.storyboard */; };
 		1B0074FC268CDB6200B6C4A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B0074FB268CDB6200B6C4A2 /* Assets.xcassets */; };
 		1B0074FF268CDB6200B6C4A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B0074FD268CDB6200B6C4A2 /* LaunchScreen.storyboard */; };
-		1B4C0A0F268CDF6B00FC760B /* PrimaryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C0A0E268CDF6B00FC760B /* PrimaryTableViewController.swift */; };
+		1B4C0A0F268CDF6B00FC760B /* QestionListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C0A0E268CDF6B00FC760B /* QestionListTableViewController.swift */; };
 		1B4C0A17268D1BDA00FC760B /* OwnerDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C0A16268D1BDA00FC760B /* OwnerDTO.swift */; };
 		1B4C0A19268D1BE600FC760B /* QuestionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C0A18268D1BE600FC760B /* QuestionDTO.swift */; };
 		1B4C0A1B268D1BED00FC760B /* QuestionResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C0A1A268D1BED00FC760B /* QuestionResponseDTO.swift */; };
 		1B4C0A1D268D1C0900FC760B /* Xcode .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1B4C0A1C268D1C0900FC760B /* Xcode .gitignore */; };
-		1B4C0A1F268E520000FC760B /* HttpsWorkingClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C0A1E268E520000FC760B /* HttpsWorkingClass.swift */; };
-		1BE06BB02694F2EF000BCBA2 /* PrimaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE06BAF2694F2EF000BCBA2 /* PrimaryTableViewCell.swift */; };
+		1B4C0A1F268E520000FC760B /* StackExchangeApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C0A1E268E520000FC760B /* StackExchangeApiService.swift */; };
+		1BE06BB02694F2EF000BCBA2 /* QestionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE06BAF2694F2EF000BCBA2 /* QestionListTableViewCell.swift */; };
 		1BE06BB4269664CB000BCBA2 /* StringExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE06BB3269664CB000BCBA2 /* StringExtention.swift */; };
-		1BE06BB8269BBDC4000BCBA2 /* SecondaryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE06BB7269BBDC4000BCBA2 /* SecondaryTableViewController.swift */; };
-		1BE06BBA269C5FAB000BCBA2 /* SecondaryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE06BB9269C5FAB000BCBA2 /* SecondaryTableCell.swift */; };
+		1BE06BB8269BBDC4000BCBA2 /* QestionPostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE06BB7269BBDC4000BCBA2 /* QestionPostTableViewController.swift */; };
+		1BE06BBA269C5FAB000BCBA2 /* QestionPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE06BB9269C5FAB000BCBA2 /* QestionPostTableViewCell.swift */; };
 		1BE06BBC269CE859000BCBA2 /* Pods_StackOverFlowClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD819F14E4935DA2A27E032B /* Pods_StackOverFlowClient.framework */; };
 		1BE06BBD269CE859000BCBA2 /* Pods_StackOverFlowClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CD819F14E4935DA2A27E032B /* Pods_StackOverFlowClient.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1BE06BC0269E4A78000BCBA2 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE06BBF269E4A78000BCBA2 /* Utility.swift */; };
@@ -52,16 +52,16 @@
 		1B0074FB268CDB6200B6C4A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B0074FE268CDB6200B6C4A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B007500268CDB6200B6C4A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1B4C0A0E268CDF6B00FC760B /* PrimaryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTableViewController.swift; sourceTree = "<group>"; };
+		1B4C0A0E268CDF6B00FC760B /* QestionListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QestionListTableViewController.swift; sourceTree = "<group>"; };
 		1B4C0A16268D1BDA00FC760B /* OwnerDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerDTO.swift; sourceTree = "<group>"; };
 		1B4C0A18268D1BE600FC760B /* QuestionDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionDTO.swift; sourceTree = "<group>"; };
 		1B4C0A1A268D1BED00FC760B /* QuestionResponseDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionResponseDTO.swift; sourceTree = "<group>"; };
 		1B4C0A1C268D1C0900FC760B /* Xcode .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Xcode .gitignore"; sourceTree = "<group>"; };
-		1B4C0A1E268E520000FC760B /* HttpsWorkingClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpsWorkingClass.swift; sourceTree = "<group>"; };
-		1BE06BAF2694F2EF000BCBA2 /* PrimaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PrimaryTableViewCell.swift; path = StackOverFlowClient/Controllers/Cells/PrimaryTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		1B4C0A1E268E520000FC760B /* StackExchangeApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackExchangeApiService.swift; sourceTree = "<group>"; };
+		1BE06BAF2694F2EF000BCBA2 /* QestionListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QestionListTableViewCell.swift; path = StackOverFlowClient/Controllers/Cells/QestionListTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		1BE06BB3269664CB000BCBA2 /* StringExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtention.swift; sourceTree = "<group>"; };
-		1BE06BB7269BBDC4000BCBA2 /* SecondaryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SecondaryTableViewController.swift; path = StackOverFlowClient/Controllers/SecondaryTableViewController.swift; sourceTree = SOURCE_ROOT; };
-		1BE06BB9269C5FAB000BCBA2 /* SecondaryTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryTableCell.swift; sourceTree = "<group>"; };
+		1BE06BB7269BBDC4000BCBA2 /* QestionPostTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QestionPostTableViewController.swift; path = StackOverFlowClient/Controllers/QestionPostTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		1BE06BB9269C5FAB000BCBA2 /* QestionPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QestionPostTableViewCell.swift; sourceTree = "<group>"; };
 		1BE06BBF269E4A78000BCBA2 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		1BE24C7526A18596001B65BC /* AnswersDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnswersDTO.swift; path = "StackOverFlowClient/Module /Domain/AnswersDTO.swift"; sourceTree = SOURCE_ROOT; };
 		1BE24C7726A1D2EC001B65BC /* AnswersResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersResponseDTO.swift; sourceTree = "<group>"; };
@@ -119,8 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				1BE06BBB269C6244000BCBA2 /* Cells */,
-				1BE06BB7269BBDC4000BCBA2 /* SecondaryTableViewController.swift */,
-				1B4C0A0E268CDF6B00FC760B /* PrimaryTableViewController.swift */,
+				1BE06BB7269BBDC4000BCBA2 /* QestionPostTableViewController.swift */,
+				1B4C0A0E268CDF6B00FC760B /* QestionListTableViewController.swift */,
 				1BE06BB3269664CB000BCBA2 /* StringExtention.swift */,
 			);
 			path = Controllers;
@@ -129,7 +129,7 @@
 		1B4C0A13268CE04600FC760B /* Module  */ = {
 			isa = PBXGroup;
 			children = (
-				1B4C0A1E268E520000FC760B /* HttpsWorkingClass.swift */,
+				1B4C0A1E268E520000FC760B /* StackExchangeApiService.swift */,
 				1BE06BBF269E4A78000BCBA2 /* Utility.swift */,
 				1B4C0A15268D1BCC00FC760B /* Domain */,
 			);
@@ -159,8 +159,8 @@
 		1BE06BBB269C6244000BCBA2 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				1BE06BB9269C5FAB000BCBA2 /* SecondaryTableCell.swift */,
-				1BE06BAF2694F2EF000BCBA2 /* PrimaryTableViewCell.swift */,
+				1BE06BB9269C5FAB000BCBA2 /* QestionPostTableViewCell.swift */,
+				1BE06BAF2694F2EF000BCBA2 /* QestionListTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -299,8 +299,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B4C0A17268D1BDA00FC760B /* OwnerDTO.swift in Sources */,
-				1BE06BB02694F2EF000BCBA2 /* PrimaryTableViewCell.swift in Sources */,
-				1BE06BBA269C5FAB000BCBA2 /* SecondaryTableCell.swift in Sources */,
+				1BE06BB02694F2EF000BCBA2 /* QestionListTableViewCell.swift in Sources */,
+				1BE06BBA269C5FAB000BCBA2 /* QestionPostTableViewCell.swift in Sources */,
 				1B4C0A19268D1BE600FC760B /* QuestionDTO.swift in Sources */,
 				1B0074F3268CDB5F00B6C4A2 /* AppDelegate.swift in Sources */,
 				1BE24C7826A1D2EC001B65BC /* AnswersResponseDTO.swift in Sources */,
@@ -308,10 +308,10 @@
 				1B0074F5268CDB5F00B6C4A2 /* SceneDelegate.swift in Sources */,
 				1B4C0A1B268D1BED00FC760B /* QuestionResponseDTO.swift in Sources */,
 				1BE06BB4269664CB000BCBA2 /* StringExtention.swift in Sources */,
-				1B4C0A0F268CDF6B00FC760B /* PrimaryTableViewController.swift in Sources */,
+				1B4C0A0F268CDF6B00FC760B /* QestionListTableViewController.swift in Sources */,
 				1BE24C7626A18596001B65BC /* AnswersDTO.swift in Sources */,
-				1B4C0A1F268E520000FC760B /* HttpsWorkingClass.swift in Sources */,
-				1BE06BB8269BBDC4000BCBA2 /* SecondaryTableViewController.swift in Sources */,
+				1B4C0A1F268E520000FC760B /* StackExchangeApiService.swift in Sources */,
+				1BE06BB8269BBDC4000BCBA2 /* QestionPostTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

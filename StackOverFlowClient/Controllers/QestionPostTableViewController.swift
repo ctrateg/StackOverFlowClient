@@ -1,9 +1,9 @@
 import UIKit
 import SwiftSoup
 
-class SecondaryTableViewController: UITableViewController {
+class QestionPostTableViewController: UITableViewController {
     var link: String?
-    let httpsWorkingClass = HttpsWorkingClass()
+    let httpsWorkingClass = StackExchangeApiService()
     var dataJson: [AnswersDTO] = []
     var htmlText: [String] = []
     var qestionNickName: String?
@@ -15,8 +15,8 @@ class SecondaryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        answerRequest(ids: "\(qestionId ?? 0)")
-        requestHtml(link: link ?? "")
+        answerRequest(ids: "\(qestionId ?? Utility.defaultInt)")
+        requestHtml(link: link ?? Utility.emptyString)
         
         refreshControl = UIRefreshControl()
         refreshControl?.attributedTitle = NSAttributedString(string: "Идет обновление...")
@@ -33,21 +33,22 @@ class SecondaryTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SecondaryTableViewCell", for: indexPath) as! SecondaryTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "QestionPostTableViewCell", for: indexPath) as! QestionPostTableViewCell
         let htmlValue = htmlText[indexPath.row]
         let answerRow = indexPath.row - 1
         
         cell.textSTVC.text = htmlValue
         
-        if indexPath.row == 0 {
+        if indexPath.row == 0{
             cell.nickNameSTVC.text = qestionNickName
-            cell.raitingSTVC.text = String(qestionScore ?? 0)
+            cell.raitingSTVC.text = String(qestionScore ?? Utility.defaultInt)
             cell.dateModificatedSTVC.text = date(creationDate: qestionCreationDate, lastEditDate: qestionLastEditDate)
             cell.backgroundColor = .lightGray
         } else {
             cell.nickNameSTVC.text = dataJson[answerRow].owner?.displayName
-            cell.raitingSTVC.text = String(dataJson[answerRow].score ?? 0)
+            cell.raitingSTVC.text = String(dataJson[answerRow].score ?? Utility.defaultInt)
             cell.dateModificatedSTVC.text = date(creationDate: dataJson[answerRow].creationData, lastEditDate: dataJson[answerRow].lastActivityDate)
+            cell.backgroundColor = .white
             
             switch answerCheckMark(row: answerRow) {
             case true:
@@ -62,22 +63,25 @@ class SecondaryTableViewController: UITableViewController {
     //запрос с обновлением таблицы
     func answerRequest(ids: String){
         navigationItem.hidesBackButton = true
-        httpsWorkingClass.requestAnswers(ids: ids){ [weak self] searchResponce in
-            self?.dataJson = searchResponce.items
-            DispatchQueue.main.sync {
-                self?.tableView.reloadData()
-                self?.navigationItem.hidesBackButton = false
+        DispatchQueue.global(qos: .background).sync {
+            self.httpsWorkingClass.requestAnswers(ids: ids){ [weak self] searchResponce in
+                self?.dataJson = searchResponce.items
+            
+                DispatchQueue.main.sync {
+                    self?.tableView.reloadData()
+                    self?.navigationItem.hidesBackButton = false
+                }
             }
         }
     }
     
     //получение текста
     func requestHtml(link: String){
-        DispatchQueue.global(qos: .default).async(qos:.background) {
-            self.httpsWorkingClass.htmlRequest(link){ [weak self] searchResponce in
+        DispatchQueue.global(qos: .background).sync {
+            self.httpsWorkingClass.requestHttps(link){ [weak self] searchResponce in
                 self?.htmlText = searchResponce
-            
-                DispatchQueue.main.sync {
+                
+                DispatchQueue.main.async {
                     self?.tableView.reloadData()
                 }
             }
@@ -87,9 +91,9 @@ class SecondaryTableViewController: UITableViewController {
     // подводка к дате в полоном виде
     func date(creationDate: Int?, lastEditDate: Int?) -> String{
         if qestionLastEditDate == nil {
-            return Utility.unwarpDate(creationDate ?? 0)
+            return Utility.unwarpDate(creationDate ?? Utility.defaultInt)
         } else {
-            return Utility.dateOutput(lastEditDate ?? 0)
+            return Utility.dateOutput(lastEditDate ?? Utility.defaultInt)
         }
     }
     
@@ -104,10 +108,10 @@ class SecondaryTableViewController: UITableViewController {
     
     //Обновление по свайпу вниз
     @objc func refresh() {
-        refreshBegin(link: link ?? "", refreshEnd: {(x:Int) -> () in
+        refreshBegin(link: link ?? Utility.emptyString, refreshEnd: {(x:Int) -> () in
             self.tableView.reloadData()
             self.refreshControl?.endRefreshing()
-            })
+        })
     }
         
     func refreshBegin(link:String, refreshEnd: @escaping(Int) -> ()) {

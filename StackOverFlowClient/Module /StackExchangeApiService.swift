@@ -1,20 +1,21 @@
 import SwiftSoup
 
-
-class HttpsWorkingClass {
-    var message: QuestionResponseDTO?
+class StackExchangeApiService {
+    let jsonDecoder = JSONDecoder()
+    let stackExchangeApi = "https://api.stackexchange.com//2.3/questions"
     
     //запрос для получения данных по вопросу
-    func requestQestion(page: String = "1", tag: String, completion: @escaping (QuestionResponseDTO) -> Void){
-        guard let url = URL(string: "https://api.stackexchange.com//2.3/questions?page=\(page)&pagesize=20&order=desc&sort=activity&tagged=\(tag)&site=stackoverflow") else { return }
+    func requestQuestion(page: String = "1", pagesize:Int = 20, tag: String, completion: @escaping (QuestionResponseDTO) -> Void){
+        
+        self.jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+        
+        guard let url = URL(string: "\(stackExchangeApi)?page=\(page)&pagesize=\(pagesize)&order=desc&sort=activity&tagged=\(tag)&site=stackoverflow") else { return }
         
         let task = URLSession.shared.dataTask(with: url) {
             (data, request, error) in
-            let jsonDecoder = JSONDecoder()
-            jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
             
                 do {
-                    let returnData = try jsonDecoder.decode(QuestionResponseDTO.self, from: data!)
+                    let returnData = try self.jsonDecoder.decode(QuestionResponseDTO.self, from: data!)
                     
                     completion(returnData)
                 } catch let error as NSError {
@@ -26,15 +27,14 @@ class HttpsWorkingClass {
     
     //запрос по qestionId для получения данных по answers на него
     func requestAnswers(ids: String, completion: @escaping (AnswersResponseDTO) -> Void){
-        guard let url = URL(string: "https://api.stackexchange.com/2.3/questions/\(ids)/answers?order=desc&sort=activity&site=stackoverflow") else { return }
+        self.jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+        guard let url = URL(string: "\(stackExchangeApi)/\(ids)/answers?order=desc&sort=activity&site=stackoverflow") else { return }
         
         let task = URLSession.shared.dataTask(with: url) {
         (data, request, error) in
-            let jsonDecoder = JSONDecoder()
-            jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
         
             do {
-                let returnData = try jsonDecoder.decode(AnswersResponseDTO.self, from: data!)
+                let returnData = try self.jsonDecoder.decode(AnswersResponseDTO.self, from: data!)
                 completion(returnData)
             } catch let error as NSError {
                 print("\(error), \(error.userInfo)")
@@ -44,7 +44,7 @@ class HttpsWorkingClass {
     }
     
     //получение текста с сайта по ирл qestion
-    func htmlRequest(_ url: String, completion: @escaping ([String]) -> Void){
+    func requestHttps(_ url: String, elementClass: String = "post-layout", completion: @escaping ([String]) -> Void){
         guard let htmlUrl = URL(string: url) else { return }
         
         do {
@@ -53,7 +53,7 @@ class HttpsWorkingClass {
             
             do {
                 let doc: Document = try SwiftSoup.parse(htmlContent)
-                let elements = try doc.getElementsByClass("post-layout").array()
+                let elements = try doc.getElementsByClass(elementClass).array()
                 var returnData: [String] = []
                 
                 for element in elements {

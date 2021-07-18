@@ -2,9 +2,9 @@ import UIKit
 import Foundation
 import SwiftSoup
 
-class PrimaryTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class QestionListTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    let httpsWorkingClass = HttpsWorkingClass()
+    let stackExchangeApiService = StackExchangeApiService()
     var dataJson: [QuestionDTO] = []
     var tagRequest: String = "swift"
     var pickerData = ["swift", "objective-c", "ios", "xcode", "cocoa_touch", "iphone"]
@@ -50,23 +50,21 @@ class PrimaryTableViewController: UITableViewController, UIPickerViewDelegate, U
 
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return dataJson.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PrimaryTableViewCell", for: indexPath) as! PrimaryTableViewCell
-        let commentsInt: Int = dataJson[indexPath.row].answerCount ?? 0
+        let cell = tableView.dequeueReusableCell(withIdentifier: "QestionListTableViewCell", for: indexPath) as! QestionListTableViewCell
+        let commentsInt: Int = dataJson[indexPath.row].answerCount ?? Utility.defaultInt
         let dataRow = dataJson[indexPath.row]
-        let qestionString: String = dataRow.title ?? ""
-        let answeringPersonString: String = dataRow.owner?.displayName ?? ""
-        let editDate: Int = dataRow.lastEditDate ?? 0
-        let creatDate: Int = dataRow.creationDate ?? 0
+        let qestionString: String = dataRow.title ?? Utility.emptyString
+        let answeringPersonString: String = dataRow.owner?.displayName ?? Utility.emptyString
+        let editDate: Int = dataRow.lastEditDate ?? Utility.defaultInt
+        let creatDate: Int = dataRow.creationDate ?? Utility.defaultInt
         
         cell.qestion.text = qestionString.htmlDecoded
         cell.answeringPerson.text = answeringPersonString.htmlDecoded
@@ -83,8 +81,8 @@ class PrimaryTableViewController: UITableViewController, UIPickerViewDelegate, U
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "SegueSecond") {
-            let controller = segue.destination as! SecondaryTableViewController
-            let row = tableView.indexPathForSelectedRow?.row ?? 0
+            let controller = segue.destination as! QestionPostTableViewController
+            let row = tableView.indexPathForSelectedRow?.row ?? Utility.defaultInt
             
             controller.link = dataJson[row].link
             controller.qestionId = dataJson[row].questionId
@@ -99,7 +97,7 @@ class PrimaryTableViewController: UITableViewController, UIPickerViewDelegate, U
     func request(tag: String, page: String = "1"){
         setLoadingScreen()
         
-        httpsWorkingClass.requestQestion(page: page, tag: tag){ [weak self] searchResponce in
+        stackExchangeApiService.requestQuestion(page: page, tag: tag){ [weak self] searchResponce in
             self?.dataJson = searchResponce.items
             DispatchQueue.main.sync {
                 self?.tableView.reloadData()
@@ -142,7 +140,6 @@ class PrimaryTableViewController: UITableViewController, UIPickerViewDelegate, U
     
     // экран индикатора при подгрузках
     private func setLoadingScreen(){
-        // Sets the view which contains the loading text and the spinner
         let width: CGFloat = 50
         let height: CGFloat = 30
         let x = (tableView.frame.width / 2) - (width / 2)
@@ -178,7 +175,7 @@ class PrimaryTableViewController: UITableViewController, UIPickerViewDelegate, U
         
     func refreshBegin(tag:String, refreshEnd: @escaping(Int) -> ()) {
             DispatchQueue.global(qos: .default).async() {
-                self.httpsWorkingClass.requestQestion(tag: tag){ [weak self] searchResponce in
+                self.stackExchangeApiService.requestQuestion(tag: tag){ [weak self] searchResponce in
                     self?.dataJson = searchResponce.items
                     
                     DispatchQueue.main.sync {
@@ -219,7 +216,7 @@ class PrimaryTableViewController: UITableViewController, UIPickerViewDelegate, U
         DispatchQueue.global(qos: .default).async() {
             self.page += 1
             
-            self.httpsWorkingClass.requestQestion(page: "\(self.page)", tag: tag){ [weak self] searchResponce in
+            self.stackExchangeApiService.requestQuestion(page: "\(self.page)", tag: tag){ [weak self] searchResponce in
                 self?.dataJson += searchResponce.items
             sleep(2)
                
