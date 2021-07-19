@@ -4,10 +4,13 @@ class StackExchangeApiService {
     let jsonDecoder = JSONDecoder()
     let stackExchangeApi = "https://api.stackexchange.com//2.3/questions"
     
+    func jsonDecodingStrategy(){
+        self.jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+    }
+    
     //запрос для получения данных по вопросу
     func requestQuestion(page: String = "1", pagesize:Int = 20, tag: String, completion: @escaping (QuestionResponseDTO) -> Void){
-        
-        self.jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+        jsonDecodingStrategy()
         
         guard let url = URL(string: "\(stackExchangeApi)?page=\(page)&pagesize=\(pagesize)&order=desc&sort=activity&tagged=\(tag)&site=stackoverflow") else { return }
         
@@ -27,7 +30,8 @@ class StackExchangeApiService {
     
     //запрос по qestionId для получения данных по answers на него
     func requestAnswers(ids: String, completion: @escaping (AnswersResponseDTO) -> Void){
-        self.jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+        jsonDecodingStrategy()
+        
         guard let url = URL(string: "\(stackExchangeApi)/\(ids)/answers?order=desc&sort=activity&site=stackoverflow") else { return }
         
         let task = URLSession.shared.dataTask(with: url) {
