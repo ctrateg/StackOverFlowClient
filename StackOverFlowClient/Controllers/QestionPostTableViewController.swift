@@ -3,9 +3,9 @@ import SwiftSoup
 
 class QestionPostTableViewController: UITableViewController {
     var link: String?
-    let httpsWorkingClass = StackExchangeApiService()
-    var dataJson: [AnswersDTO] = []
-    var htmlText: [String] = []
+    private let httpsWorkingClass = StackExchangeApiService()
+    private var dataJson: [AnswersDTO] = []
+    private var htmlText: [String] = []
     var qestionNickName: String?
     var qestionLastEditDate: Int?
     var qestionCreationDate: Int?

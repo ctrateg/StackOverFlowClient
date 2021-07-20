@@ -1,10 +1,10 @@
 import SwiftSoup
 
 class StackExchangeApiService {
-    let jsonDecoder = JSONDecoder()
-    let stackExchangeApi = "https://api.stackexchange.com//2.3/questions"
+    private let jsonDecoder = JSONDecoder()
+    private let stackExchangeApi = "https://api.stackexchange.com//2.3/questions"
     
-    func jsonDecodingStrategy(){
+    private func jsonDecodingStrategy(){
         self.jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
     }
     

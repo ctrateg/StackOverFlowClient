@@ -5,16 +5,17 @@ import SwiftSoup
 class QestionListTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     let stackExchangeApiService = StackExchangeApiService()
-    var dataJson: [QuestionDTO] = []
-    var tagRequest: String = "swift"
-    var pickerData = ["swift", "objective-c", "ios", "xcode", "cocoa_touch", "iphone"]
-    var page = 1
-    var loadMoreStatus = false
+    
+    private var dataJson: [QuestionDTO] = []
+    private var tagRequest: String = "swift"
+    private var pickerData = ["swift", "objective-c", "ios", "xcode", "cocoa_touch", "iphone"]
+    private var page = 1
+    private var loadMoreStatus = false
     
     //эти части интерфейса как индикатор и пикер реализованны в коде, чтоб не нагромождать интерфейс билдер
     let loadView = UIView()
     let indicator = UIActivityIndicatorView()
-    var pickerView: UIPickerView = UIPickerView()
+    var pickerView = UIPickerView()
     
     //button для вызова пикера
     @IBAction func tagPicker(_ sender: Any) {
