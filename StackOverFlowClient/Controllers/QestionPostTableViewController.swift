@@ -3,7 +3,11 @@ import SwiftSoup
 
 class QestionPostTableViewController: UITableViewController {
     var link: String?
-    private let httpsWorkingClass = StackExchangeApiService()
+    
+    lazy var stackExchangeApiService = {
+        return StackExchangeApiService()
+    }()
+    
     private var dataJson: [AnswersDTO] = []
     private var htmlText: [String] = []
     var qestionNickName: String?
@@ -64,7 +68,7 @@ class QestionPostTableViewController: UITableViewController {
     func answerRequest(ids: String){
         navigationItem.hidesBackButton = true
         DispatchQueue.global(qos: .background).sync {
-            self.httpsWorkingClass.requestAnswers(ids: ids){ [weak self] searchResponce in
+            self.stackExchangeApiService.requestAnswers(ids: ids){ [weak self] searchResponce in
                 self?.dataJson = searchResponce.items
             
                 DispatchQueue.main.sync {
@@ -78,7 +82,7 @@ class QestionPostTableViewController: UITableViewController {
     //получение текста
     func requestHtml(link: String){
         DispatchQueue.global(qos: .background).sync {
-            self.httpsWorkingClass.requestHttps(link){ [weak self] searchResponce in
+            self.stackExchangeApiService.requestHttps(link){ [weak self] searchResponce in
                 self?.htmlText = searchResponce
                 
                 DispatchQueue.main.async {

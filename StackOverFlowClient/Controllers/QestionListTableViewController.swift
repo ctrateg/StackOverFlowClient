@@ -4,7 +4,9 @@ import SwiftSoup
 
 class QestionListTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    let stackExchangeApiService = StackExchangeApiService()
+    lazy var stackExchangeApiService = {
+        return StackExchangeApiService()
+    }()
     
     private var dataJson: [QuestionDTO] = []
     private var tagRequest: String = "swift"
