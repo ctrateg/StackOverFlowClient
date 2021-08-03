@@ -61,38 +61,39 @@ class QestionListTableViewController: UITableViewController, UIPickerViewDelegat
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "QestionListTableViewCell", for: indexPath) as! QestionListTableViewCell
-        let commentsInt: Int = dataJson[indexPath.row].answerCount ?? Utility.defaultInt
-        let dataRow = dataJson[indexPath.row]
-        let qestionString: String = dataRow.title ?? Utility.emptyString
-        let answeringPersonString: String = dataRow.owner?.displayName ?? Utility.emptyString
-        let editDate: Int = dataRow.lastEditDate ?? Utility.defaultInt
-        let creatDate: Int = dataRow.creationDate ?? Utility.defaultInt
+        let cell = tableView.dequeueReusableCell(withIdentifier: "QestionListTableViewCell", for: indexPath) as? QestionListTableViewCell
         
-        cell.qestion.text = qestionString.htmlDecoded
-        cell.answeringPerson.text = answeringPersonString.htmlDecoded
-        cell.comments.text = "Ответов:" + String(commentsInt)
+        let commentsInt: Int = dataJson[indexPath.row].answerCount ?? UtilityDate.defaultInt
+        let dataRow = dataJson[indexPath.row]
+        let qestionString: String = dataRow.title ?? UtilityDate.emptyString
+        let answeringPersonString: String = dataRow.owner?.displayName ?? UtilityDate.emptyString
+        let editDate: Int = dataRow.lastEditDate ?? UtilityDate.defaultInt
+        let creatDate: Int = dataRow.creationDate ?? UtilityDate.defaultInt
+        
+        cell?.qestion.text = qestionString.htmlDecoded
+        cell?.answeringPerson.text = answeringPersonString.htmlDecoded
+        cell?.comments.text = "Ответов:" + String(commentsInt)
         
         if editDate != 0 {
-            cell.editData.text = Utility.dateOutput(editDate)
+            cell?.editData.text = UtilityDate.dateOutput(editDate)
         } else {
-            cell.editData.text = Utility.unwarpDate(creatDate)
+            cell?.editData.text = UtilityDate.unwarpDate(creatDate)
         }
 
-        return cell
+        return cell!
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "SegueSecond") {
-            let controller = segue.destination as! QestionPostTableViewController
-            let row = tableView.indexPathForSelectedRow?.row ?? Utility.defaultInt
+            let controller = segue.destination as? QestionPostTableViewController
+            let row = tableView.indexPathForSelectedRow?.row ?? UtilityDate.defaultInt
             
-            controller.link = dataJson[row].link
-            controller.qestionId = dataJson[row].questionId
-            controller.qestionLastEditDate = dataJson[row].lastEditDate
-            controller.qestionCreationDate = dataJson[row].creationDate
-            controller.qestionScore = dataJson[row].score
-            controller.qestionNickName = dataJson[row].owner?.displayName?.htmlDecoded
+            controller?.link = dataJson[row].link
+            controller?.qestionId = dataJson[row].questionId
+            controller?.qestionLastEditDate = dataJson[row].lastEditDate
+            controller?.qestionCreationDate = dataJson[row].creationDate
+            controller?.qestionScore = dataJson[row].score
+            controller?.qestionNickName = dataJson[row].owner?.displayName?.htmlDecoded
         }
     }
 
@@ -107,7 +108,6 @@ class QestionListTableViewController: UITableViewController, UIPickerViewDelegat
             }
         }
         self.page = 1
-        
         removeLoadingScreen()
         
         navigationController?.topViewController?.title = tag
@@ -129,16 +129,15 @@ class QestionListTableViewController: UITableViewController, UIPickerViewDelegat
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let tagRequestChange = pickerData[row]
         
-        if tagRequest == tagRequestChange {
-            pickerView.isHidden = true
-        } else {
-            pickerView.isHidden = true
+        pickerView.isHidden = true
+        dismiss(animated: true, completion: nil)
+        
+        if tagRequest != tagRequestChange {
             self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
             
             tagRequest = tagRequestChange
             request(tag: tagRequest)
         }
-        dismiss(animated: true, completion: nil)
     }
     
     // экран индикатора при подгрузках
@@ -146,7 +145,7 @@ class QestionListTableViewController: UITableViewController, UIPickerViewDelegat
         let width: CGFloat = 50
         let height: CGFloat = 30
         let x = (tableView.frame.width / 2) - (width / 2)
-        let y = (tableView.frame.height / 2) - (height / 2) - (navigationController?.navigationBar.frame.height)!
+        let y = (tableView.frame.height / 2) - (height / 2) - (navigationController?.navigationBar.frame.height ?? 0)
         
         loadView.frame = CGRect(x: x, y: y, width: width, height: height)
 
@@ -173,8 +172,8 @@ class QestionListTableViewController: UITableViewController, UIPickerViewDelegat
         refreshBegin(tag: tagRequest, refreshEnd: {(x:Int) -> () in
             self.tableView.reloadData()
             self.refreshControl?.endRefreshing()
-            })
-        }
+        })
+    }
         
     func refreshBegin(tag:String, refreshEnd: @escaping(Int) -> ()) {
             DispatchQueue.global(qos: .default).async() {
@@ -183,15 +182,15 @@ class QestionListTableViewController: UITableViewController, UIPickerViewDelegat
                     
                     DispatchQueue.main.sync {
                         self?.tableView.reloadData()
-                    }
                 }
+            }
                 sleep(2)
                 
                 DispatchQueue.main.async() {
                     refreshEnd(0)
-                }
             }
         }
+    }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let currentOffset = scrollView.contentOffset.y

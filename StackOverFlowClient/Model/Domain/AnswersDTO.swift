@@ -1,10 +1,3 @@
-//
-//  AnswersDTO.swift
-//  StackOverFlowClient
-//
-//  Created by Евгений Васильев on 16.07.2021.
-//
-
 import Foundation
 
 struct  AnswersDTO: Codable{

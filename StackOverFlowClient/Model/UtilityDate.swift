@@ -1,6 +1,6 @@
 import Foundation
 
-class Utility {
+class UtilityDate {
     static let emptyString = ""
     static let defaultInt = 0
     

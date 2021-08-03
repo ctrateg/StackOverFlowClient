@@ -17,15 +17,15 @@ class StackExchangeApiService {
         let task = URLSession.shared.dataTask(with: url) {
             (data, request, error) in
             
-                do {
-                    let returnData = try self.jsonDecoder.decode(QuestionResponseDTO.self, from: data!)
-                    
-                    completion(returnData)
-                } catch let error as NSError {
-                    print("\(error), \(error.userInfo)")
-                }
+            do {
+                let returnData = try self.jsonDecoder.decode(QuestionResponseDTO.self, from: data!)
+        
+                completion(returnData)
+            } catch let error as NSError {
+                print("\(error), \(error.userInfo)")
             }
-            task.resume()
+        }
+        task.resume()
     }
     
     //запрос по qestionId для получения данных по answers на него
