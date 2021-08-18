@@ -37,31 +37,32 @@ class QestionPostTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "QestionPostTableViewCell", for: indexPath) as? QestionPostTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "QestionPostTableViewCell", for: indexPath) as! QestionPostTableViewCell
         let htmlValue = htmlText[indexPath.row]
         let answerRow = indexPath.row - 1
         
-        cell?.textSTVC.text = htmlValue
+        cell.textSTVC.text = htmlValue
         
         if indexPath.row == 0{
-            cell?.nickNameSTVC.text = qestionNickName
-            cell?.raitingSTVC.text = String(qestionScore ?? UtilityDate.defaultInt)
-            cell?.dateModificatedSTVC.text = date(creationDate: qestionCreationDate, lastEditDate: qestionLastEditDate)
-            cell?.backgroundColor = .lightGray
+            cell.nickNameSTVC.text = qestionNickName
+            cell.raitingSTVC.text = String(qestionScore ?? UtilityDate.defaultInt)
+            cell.dateModificatedSTVC.text = date(creationDate: qestionCreationDate, lastEditDate: qestionLastEditDate)
+            cell.backgroundColor = .lightGray
         } else {
-            cell?.nickNameSTVC.text = dataJson[answerRow].owner?.displayName
-            cell?.raitingSTVC.text = String(dataJson[answerRow].score ?? UtilityDate.defaultInt)
-            cell?.dateModificatedSTVC.text = date(creationDate: dataJson[answerRow].creationData, lastEditDate: dataJson[answerRow].lastActivityDate)
-            cell?.backgroundColor = .white
+            cell.nickNameSTVC.text = dataJson[answerRow].owner?.displayName
+            cell.raitingSTVC.text = String(dataJson[answerRow].score ?? UtilityDate.defaultInt)
+            cell.dateModificatedSTVC.text = date(creationDate: dataJson[answerRow].creationData, lastEditDate: dataJson[answerRow].lastActivityDate)
+            cell.backgroundColor = .white
             
             switch answerCheckMark(row: answerRow) {
             case true:
-                cell?.accessoryType = .checkmark
+                cell.accessoryType = .checkmark
             case false:
                 break
             }
         }
-        return cell!
+        
+        return cell
     }
     
     //запрос с обновлением таблицы

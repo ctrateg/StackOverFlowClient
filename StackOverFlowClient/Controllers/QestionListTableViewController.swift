@@ -61,7 +61,7 @@ class QestionListTableViewController: UITableViewController, UIPickerViewDelegat
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "QestionListTableViewCell", for: indexPath) as? QestionListTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "QestionListTableViewCell", for: indexPath) as! QestionListTableViewCell
         
         let commentsInt: Int = dataJson[indexPath.row].answerCount ?? UtilityDate.defaultInt
         let dataRow = dataJson[indexPath.row]
@@ -70,17 +70,17 @@ class QestionListTableViewController: UITableViewController, UIPickerViewDelegat
         let editDate: Int = dataRow.lastEditDate ?? UtilityDate.defaultInt
         let creatDate: Int = dataRow.creationDate ?? UtilityDate.defaultInt
         
-        cell?.qestion.text = qestionString.htmlDecoded
-        cell?.answeringPerson.text = answeringPersonString.htmlDecoded
-        cell?.comments.text = "Ответов:" + String(commentsInt)
+        cell.qestion.text = qestionString.htmlDecoded
+        cell.answeringPerson.text = answeringPersonString.htmlDecoded
+        cell.comments.text = "Ответов:" + String(commentsInt)
         
         if editDate != 0 {
-            cell?.editData.text = UtilityDate.dateOutput(editDate)
+            cell.editData.text = UtilityDate.dateOutput(editDate)
         } else {
-            cell?.editData.text = UtilityDate.unwarpDate(creatDate)
+            cell.editData.text = UtilityDate.unwarpDate(creatDate)
         }
-
-        return cell!
+        
+        return cell
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

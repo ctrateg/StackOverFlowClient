@@ -16,9 +16,10 @@ class StackExchangeApiService {
         
         let task = URLSession.shared.dataTask(with: url) {
             (data, request, error) in
+            guard let dataUnwarp = data else { return }
             
             do {
-                let returnData = try self.jsonDecoder.decode(QuestionResponseDTO.self, from: data!)
+                let returnData = try self.jsonDecoder.decode(QuestionResponseDTO.self, from: dataUnwarp)
         
                 completion(returnData)
             } catch let error as NSError {
